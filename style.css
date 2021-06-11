@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    
+  
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: #e3e3d3;
+
+    display: flex;
+    flex-direction: column;
+
+    
+    
+
+    
+    
+}
+
+.content-text {
+    width: 100%;
+    height: auto;
+
+    margin: 20px;
+    padding: 10px;
+
+    display: flex;
+}
+
+.content-text p {
+    width: 50%;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+
+    padding-top: 5px;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: top; 
+}
+
+.container-game{
+    width: 100%;
+    
+    margin: 15px;
+    padding: 5px;
+
+    display: flex;
+
+    
+}
+
+.game{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding:auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.block{
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000 ;
+
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.block:nth-child(3){
+    border-right: 0;
+}
+
+.block:nth-child(6){
+    border-right: 0;
+}
+
+.block:nth-child(9){
+    border-right: 0;
+}
+
+.block:nth-child(7){
+    border-bottom: 0;
+}
+
+.block:nth-child(8){
+    border-bottom: 0;
+}
+
+.block:nth-child(9){
+    border-bottom: 0;
+}
+
+#winnerText {
+    width: 50%;
+    text-align: right;
+    
+    font-weight: bold;
+
+    padding-top: 5px;
+
+    visibility: hidden;
+}
+
+
+.footer{
+    width: 100%;
+    height: auto;
+     display: flex;
+     justify-content: center;
+}
+
+.image-reset{
+        width: 50px;
+     height: 50px;
+     background-image: url(./assets/reset.svg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: 50px;
+
+     visibility: hidden;
+}

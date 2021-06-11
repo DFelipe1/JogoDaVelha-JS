@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"> 
+        <div class="content-text">
+            <p class="text">Vez do jogador:</p>
+            <div class="image"></div>
+        </div>
+
+        <div class="container-game">
+            <div class="game">
+
+                <div id="a1" class="block" jogada='' clicked='false'></div>
+                <div id="a2" class="block" jogada='' clicked='false'></div>
+                <div id="a3" class="block" jogada='' clicked='false'></div>
+
+                <div id="b1" class="block" jogada='' clicked='false'></div>
+                <div id="b2" class="block" jogada='' clicked='false'></div>
+                <div id="b3" class="block" jogada='' clicked='false'></div>
+
+                <div id="c1" class="block" jogada='' clicked='false'></div>
+                <div id="c2" class="block" jogada='' clicked='false'></div>
+                <div id="c3" class="block" jogada='' clicked='false'></div>
+            </div>
+        </div>
+        
+        <div class="content-text">
+            <h2 id="winnerText" >Vencedor da Partida:</h2>
+            <div class="image"></div>
+            
+        </div>
+
+        <div class="footer">
+            <div class="image-reset"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
