@@ -2,13 +2,31 @@ var start = true;
 let image = false;
 
 
+// Object Player
+const PlayerX = {
+    score: 0,
+    victory: () =>{
+        PlayerX.score = PlayerX.score  +1;
+    }
+}
+const PlayerO = {
+    score: 0,
+    victory: () =>{
+        PlayerO.score++;
+
+    }
+}
+
+
+
+// Check jogada do Player X or O
 const imageMark = document.getElementsByClassName('image')
 
 function checkPlayer() {
     if(start) {
-        imageMark[0].style.backgroundImage = "url(/assets/x.svg)"
+        imageMark[0].style.backgroundImage = "url(./assets/x.svg)"
     } else {
-        imageMark[0].style.backgroundImage = "url(/assets/O.svg)"
+        imageMark[0].style.backgroundImage = "url(./assets/O.svg)"
     }
 }
 checkPlayer()
@@ -16,53 +34,40 @@ checkPlayer()
 
 
 
-
+// Motor do Jogo
 const block = document.getElementsByClassName('block')
-const fails = document.getElementsByClassName('fail')
 
-
+// Adiciona um evento para cada bloco do tabuleiro
 for(let i =0; i < block.length; i++ ){
     
         block[i].addEventListener('click', () => {
+            
         
             let clicked = block[i].attributes.clicked.value
 
             block[i].classList.add('fail')
 
-
-           
             
 
             if (clicked == 'false') {
                 
                 if(start == true){
-                    block[i].style.backgroundImage = "url(/assets/x.svg)"
+                    block[i].style.backgroundImage = "url(./assets/x.svg)"
                     block[i].setAttribute('jogada', 'x')
 
                 } else {
-                    block[i].style.backgroundImage = "url(/assets/O.svg)"
+                    block[i].style.backgroundImage = "url(./assets/O.svg)"
                     block[i].setAttribute('jogada', 'O')
                 }
 
                 block[i].setAttribute('clicked', true)
                 start = !start
                 checkPlayer()
-                checkVictory()
-                
-
-              
-                
-                if(fails.length == 9){
-                    gameOver("velha")
-                }
-                
-                
+                checkVictory()   
+               
                 
             } 
            
-                
-            
-
           
         
         })
@@ -71,6 +76,10 @@ for(let i =0; i < block.length; i++ ){
 
 
 
+
+
+
+//ckecka qual jogador ganhou ou se o jogo empatou
 function checkVictory() {
     const a1 = document.getElementById('a1').getAttribute('jogada');
     const a2 = document.getElementById('a2').getAttribute('jogada');
@@ -106,16 +115,34 @@ function checkVictory() {
         if((c3 == c2 && c3 == c1 && c3 != "") || (c3 == b3 && c3 == a3 && c3 != "")){
             winner = c3;
 
+            
             gameOver(winner)
             
         } 
+
+        const arrayBlock = []
+
+        for(let i =0; i < block.length; i++){
+            jogadaValue = block[i].attributes.jogada.value
+            arrayBlock.push(...jogadaValue)
+            
+        }
+
+        
+
+        if(arrayBlock.length >= 9 && winner == ""){
+            winner = "velha"
+            gameOver(winner)
+        }
+
+       
     
 }
 
 
 
 
-
+// Game Over
 function gameOver(winner) {
     const winnerGame = document.getElementById("winnerText");
     const reset = document.querySelector('.image-reset')
@@ -123,7 +150,7 @@ function gameOver(winner) {
     winnerGame.style.visibility = "visible"
     reset.style.visibility = "visible"
 
-    imageMark[1].style.backgroundImage = `url(/assets/${winner}.svg)`
+    imageMark[1].style.backgroundImage = `url(./assets/${winner}.svg)`
 
     for(let i =0; i < block.length; i++ ){
         block[i].setAttribute('clicked', true)
@@ -132,9 +159,22 @@ function gameOver(winner) {
     reset.addEventListener('click', reseter)
 
 
+    // efetua a conta da pontuaçao de cada jogador
+    if(winner == "x"){
+        const pScoreX = document.getElementById('PlayerX-score')
+        PlayerX.victory();
+        pScoreX.textContent = PlayerX.score
+    } else if(winner == "O"){
+        const pScoreO = document.getElementById('PlayerO-score')
+        PlayerO.victory();
+        pScoreO.textContent = PlayerO.score
+    }
+
+
     
 }
 
+// restart game
 function reseter() {
     for(let i =0; i < block.length; i++ ){
         block[i].style.backgroundImage = "";
