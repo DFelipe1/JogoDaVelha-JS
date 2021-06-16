@@ -7,6 +7,7 @@
     <title>Jogo da velha</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Global.css">
 </head>
 <body>
     <div class="container"> 
@@ -17,20 +18,22 @@
         </div>
 
         <div class="container-game">
-            <div class="game">
+            <div class="spacing-game">
+                <div class="game">
 
-                <div id="a1" class="block" jogada='' clicked='false'></div>
-                <div id="a2" class="block" jogada='' clicked='false'></div>
-                <div id="a3" class="block" jogada='' clicked='false'></div>
+                    <div id="a1" class="block" jogada='' clicked='false'></div>
+                    <div id="a2" class="block" jogada='' clicked='false'></div>
+                    <div id="a3" class="block" jogada='' clicked='false'></div>
 
-                <div id="b1" class="block" jogada='' clicked='false'></div>
-                <div id="b2" class="block" jogada='' clicked='false'></div>
-                <div id="b3" class="block" jogada='' clicked='false'></div>
+                    <div id="b1" class="block" jogada='' clicked='false'></div>
+                    <div id="b2" class="block" jogada='' clicked='false'></div>
+                    <div id="b3" class="block" jogada='' clicked='false'></div>
 
-                <div id="c1" class="block" jogada='' clicked='false'></div>
-                <div id="c2" class="block" jogada='' clicked='false'></div>
-                <div id="c3" class="block" jogada='' clicked='false'></div>
-            </div>
+                    <div id="c1" class="block" jogada='' clicked='false'></div>
+                    <div id="c2" class="block" jogada='' clicked='false'></div>
+                    <div id="c3" class="block" jogada='' clicked='false'></div>
+                </div>
+            </div>    
         </div>
         
         <div class="content-text">
@@ -54,10 +57,51 @@
                 <h3 id="PlayerO-score">0</h3>
             </div>
         </div>
+
+        <div class="container-animate">
+        
+        </div>
     </div>
 
-    <script src="script.js"></script>
+  
 
+    <script src="script.js"></script>
+    <script>
+         
+
+        function createObject(){
+            const container = document.querySelector('.container-animate');
+            const spanObject = document.createElement('span');
+
+            let size = Math.random() * 20;
+
+            spanObject.style.width= 10 + size + 'px';
+            spanObject.style.height= 10 + size + 'px';
+
+            spanObject.style.left = Math.random() * innerWidth + 'px';
+            spanObject.style.bottom = 0
+
+            const luke = Math.floor(Math.random() * 2)
+
+            if (luke == 1){
+                spanObject.style.backgroundImage = 'url(/assets/X.svg)'
+                spanObject.style.backgroundSize = '30px'
+            } else {
+                spanObject.style.backgroundImage = 'url(/assets/O.svg)'
+            }
+
+            spanObject.style.filter= `brightness(0.5) sepia(1) saturate(5) hue-rotate(${Math.floor(Math.random()*360)}deg)`
+
+            container.appendChild(spanObject);
+
+            setTimeout(() => {
+                spanObject.remove();
+            }, 5000)
+
+        }
+
+        setInterval(createObject, 100);
+    </script>
         
 </body>
 </html>
