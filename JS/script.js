@@ -24,9 +24,9 @@ const imageMark = document.getElementsByClassName('image')
 
 function checkPlayer() {
     if(start) {
-        imageMark[0].style.backgroundImage = "url(./assets/x.svg)"
+        imageMark[0].style.backgroundImage = "url(../assets/x.svg)"
     } else {
-        imageMark[0].style.backgroundImage = "url(./assets/O.svg)"
+        imageMark[0].style.backgroundImage = "url(../assets/O.svg)"
     }
 }
 checkPlayer()
@@ -150,7 +150,7 @@ function gameOver(winner) {
     winnerGame.style.visibility = "visible"
     reset.style.visibility = "visible"
 
-    imageMark[1].style.backgroundImage = `url(./assets/${winner}.svg)`
+    imageMark[1].style.backgroundImage = `url(../assets/${winner}.svg)`
 
     for(let i =0; i < block.length; i++ ){
         block[i].setAttribute('clicked', true)
@@ -170,7 +170,7 @@ function gameOver(winner) {
         pScoreO.textContent = PlayerO.score
     }
 
-
+    UpScore(PlayerX.score, PlayerO.score)
     
 }
 
@@ -197,6 +197,23 @@ function reseter() {
     checkPlayer()
 
     
+}
+
+
+function UpScore(scoreX, scoreO){
+    const playerScoreX = document.getElementById("PlayerX")
+    const playerScoreO = document.getElementById("PlayerO")
+
+    if(scoreX > scoreO){
+        playerScoreX.style.transform = 'translate(20px,-9.4rem)'
+        playerScoreO.style.transform = 'translateY(9.4rem)'
+    } if(scoreX == scoreO){
+        playerScoreX.style.transform = ''
+        playerScoreO.style.transform = ''
+    } if(scoreX < scoreO){
+        playerScoreX.style.transform = 'translate(20px,9.4rem)'
+        playerScoreO.style.transform = 'translateY(-9.4rem)'
+    }
 }
 
 

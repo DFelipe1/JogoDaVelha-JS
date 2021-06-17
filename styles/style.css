@@ -13,19 +13,19 @@
 }
 .content-text p {
     
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: bold;
 
     padding-top: 5px;
 }
 
 .image {
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     
-    background-size: 30px;
+    background-size: 1.875rem;
     background-repeat: no-repeat;
-    background-position: top; 
+    background-position: center; 
     
 }
 
@@ -53,8 +53,8 @@
 
 /* blocos do tabuleiro */
 .block{
-    width: 150px;
-    height: 150px;
+    width: 9.4rem;
+    height: 9.4rem;
     border-right: 1px solid #fff;
     border-bottom: 1px solid #fff ;
 
@@ -108,12 +108,12 @@
 }
 
 .image-reset{
-        width: 50px;
-     height: 50px;
-     background-image: url(assets/reset.svg);
+     width: 3rem;
+     height: 3rem;
+     background-image: url(../assets/reset.svg);
      background-position: center;
      background-repeat: no-repeat;
-     background-size: 50px;
+     background-size: 3rem;
 
      visibility: hidden;
 }
@@ -122,60 +122,73 @@
     width: 100%;
     height: auto;
 
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 
     
     z-index: 0;
 
     position: absolute;
-    top: 10rem;
+    top: 18.6rem;
     
     display: flex;
     justify-content: center;
     
-    gap: 30rem;
+    gap: 35rem;
     
 }
 
 .player{
-    padding: 3rem;
     
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+#PlayerX {
+    transform: translatex(20px);
+    transition: transform 1s;
+}
+
+#PlayerO {
+    transform: translatex(8px);
+    transition: transform 1s;
 }
 
 #PlayerX::after {
     content: '';
     position: absolute;
-    width: 400px;
-    height: 100px;
+    width: 20rem;
+    height: 6.3rem;
     background: linear-gradient(#ffc107, #e91e63);
     border-radius: 10px;
-    transform: translate(-10px, -80px);
+    
     z-index: -1;
 }
-#PlayerX {
-    transform: translate(32px, 190px);
-}
+
 
 #PlayerO::after {
     content: '';
     position: absolute;
-    width: 400px;
-    height: 100px;
+    width: 20rem;
+    height: 6.3rem;
     background: linear-gradient(#078fff, #e91ed8);
     border-radius: 10px;
-    transform: translate(-190px, -80px);
+    
     z-index: -1;
 }
 
-#PlayerO {
-    transform: translate(-6px, 190px);
-}
+
 
 .player h1{
     text-align: center;
 
     font-size: 1.5rem;
     font-weight: 300;
+
+    margin: 10px;
 }
 
 .player h3 {
@@ -187,9 +200,9 @@
 
 /* Animate */
 .container-animate{
-    position: relative;
+    
     width: 100%;
-    height: 500px;
+    height: 20rem;
     bottom: 0;
     
 }

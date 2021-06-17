@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da velha</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/Global.css">
+    <link rel="stylesheet" href="./styles/Media.css">
 </head>
 <body>
     <div class="container"> 
@@ -65,7 +66,7 @@
 
   
 
-    <script src="script.js"></script>
+    <script src="/JS/script.js"></script>
     <script>
          
 
@@ -84,10 +85,10 @@
             const luke = Math.floor(Math.random() * 2)
 
             if (luke == 1){
-                spanObject.style.backgroundImage = 'url(/assets/X.svg)'
-                spanObject.style.backgroundSize = '30px'
+                spanObject.style.backgroundImage = 'url(../assets/X.svg)'
+                spanObject.style.backgroundSize = '1.875rem'
             } else {
-                spanObject.style.backgroundImage = 'url(/assets/O.svg)'
+                spanObject.style.backgroundImage = 'url(../assets/O.svg)'
             }
 
             spanObject.style.filter= `brightness(0.5) sepia(1) saturate(5) hue-rotate(${Math.floor(Math.random()*360)}deg)`
@@ -100,7 +101,7 @@
 
         }
 
-        setInterval(createObject, 100);
+        setInterval(createObject, 200);
     </script>
         
 </body>
