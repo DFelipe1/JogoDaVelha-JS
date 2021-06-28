@@ -24,7 +24,7 @@ const imageMark = document.getElementsByClassName('image')
 
 function checkPlayer() {
     if(start) {
-        imageMark[0].style.backgroundImage = "url(assets/x.svg)"
+        imageMark[0].style.backgroundImage = "url(assets/X.svg)"
     } else {
         imageMark[0].style.backgroundImage = "url(assets/O.svg)"
     }
@@ -52,7 +52,7 @@ for(let i =0; i < block.length; i++ ){
             if (clicked == 'false') {
                 
                 if(start == true){
-                    block[i].style.backgroundImage = "url(assets/x.svg)"
+                    block[i].style.backgroundImage = "url(assets/X.svg)"
                     block[i].setAttribute('jogada', 'x')
 
                 } else {
