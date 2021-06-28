@@ -53,7 +53,7 @@ for(let i =0; i < block.length; i++ ){
                 
                 if(start == true){
                     block[i].style.backgroundImage = "url(assets/X.svg)"
-                    block[i].setAttribute('jogada', 'x')
+                    block[i].setAttribute('jogada', 'X')
 
                 } else {
                     block[i].style.backgroundImage = "url(assets/O.svg)"
@@ -150,7 +150,7 @@ function gameOver(winner) {
     winnerGame.style.visibility = "visible"
     reset.style.visibility = "visible"
 
-    imageMark[1].style.backgroundImage = `url(../assets/${winner}.svg)`
+    imageMark[1].style.backgroundImage = `url(assets/${winner}.svg)`
 
     for(let i =0; i < block.length; i++ ){
         block[i].setAttribute('clicked', true)
@@ -160,7 +160,7 @@ function gameOver(winner) {
 
 
     // efetua a conta da pontuaçao de cada jogador
-    if(winner == "x"){
+    if(winner == "X"){
         const pScoreX = document.getElementById('PlayerX-score')
         PlayerX.victory();
         pScoreX.textContent = PlayerX.score
